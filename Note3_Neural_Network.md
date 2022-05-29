@@ -34,3 +34,4 @@ $$ \frac{\partial J(\theta)}{\partial \theta_{j}}= \begin{cases}
 \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)}-y^{(i)})\cdot x_j^{(i)}) & j=0 \\
  \frac{1}{m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)}-y^{(i)})\cdot x_j^{(i)}) + \frac{\lambda}{m}\theta_{j} & j > 0 
 \end{cases}$$ 
+
