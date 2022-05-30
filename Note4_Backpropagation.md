@@ -11,7 +11,7 @@ in there, $h_{\Theta}(x) \in R^{K}$.
 Our goal is $min J(\Theta)$, just as $\frac{\partial}{\partial \theta^{l}_{ij}}J(\Theta)$.
 ![img](./img/note4_backpropagation1.jpg )
 
-$$\begin{matrix} a^{(1)}=x^{(1)} \\ 
+$$\begin{matrix} a^{(1)}=x \\ 
 z^{(2)}=\Theta^{(1)}a^{(1)} \\
 a^{(2)}=g(z^{(2)}), & add & a_0^{(2)} \\ z^{(3)}=\Theta^{(2)}a^{(2)} \\
 a^{(3)}=g(z^{(3)}), & add & a_0^{(3)} \\ z^{(4)}=\Theta^{(3)}a^{(3)} \\ a^{(4)}=g(z(4)) & add & a^{(4)}_0
