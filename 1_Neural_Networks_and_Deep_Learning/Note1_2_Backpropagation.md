@@ -21,6 +21,17 @@ a^{(3)}=g(z^{(3)}), & add & a_0^{(3)} \\ z^{(4)}=\Theta^{(3)}a^{(3)} \\ a^{(4)}=
 
 Intuition: $\delta^{(l)}_j$ 是第$l$层的第$j$ 个神经元的误差， 对于最后一层 (输出层), $\delta^{(l)}_j=a^{(l)}_j-y_j$, 对于隐藏层, $\delta^{(l)}=(\Theta^{(l)})^T \delta^{(l+1)} \cdot g'(z^{(l)})$
 
+![img](../img/bp.jpg)
+
+这里有$L(a,y)=-(yloga + (1 - y)log(1-a))$，并且$s(z)=sigmoid$。
+所以根据链式求导法则有
+$$\begin{split} da &= \frac{\partial L(a,y)}{\partial a} = \frac{1-y}{1-a}-\frac{y}{a} \\ dz &= da \cdot \frac{\partial s(z)}{\partial z} = a - y \\ dw1 &= dz \cdot x1 = x1(a-y) \\ dw2 &= dz \cdot x2 = x2(a-y) \\ db &= a-y  \end{split}$$
+
+对于向量形式来说
+![img](../img/bp2.jpg)
+$$\begin{split} da2 &= \frac{\partial L(a2,y)}{\partial a2} = \frac{1-y}{1-a2}-\frac{y}{a2} \\ dz2 &= da2 \cdot \frac{\partial g(z2)}{\partial z2} = a2 - y \\ dW2 &= dz2 \cdot a1^T  \\ db2 &= dz2  \\ dz1 &= W2\cdot dz2 \cdot g(z1)' \\ dW1 &= dz1 \cdot x^T \\ db1 &= dz1 \end{split}$$
+对所有训练集，即矩阵形式来说
+$$\begin{split} dZ2 &= A2 - y \\ dW2 &= \frac{1}{m}dZ2 \cdot A1^T  \\ db2 &= \frac{1}{m}np.sum(dZ2, axis=1,keepdims=True)  \\ dZ1 &= W2^T\cdot dZ2 \cdot g(Z1)' \\ dW1 &= \frac{1}{m}dZ1 \cdot X^T \\ db1 &= \frac{1}{m}np.sum(dZ1, axis=1,keepdims=True) \end{split}$$
 ##### Backpropagation algorithm process
 
 + 对于数据集$(x^{(i)},y^{(i)})$, 对于每个 $(l,i,j)$,设 $\Delta^{(l)}_{ij}=0$
