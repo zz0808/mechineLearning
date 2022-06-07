@@ -6,7 +6,7 @@
 对于 $x \in R^n$, 希望有 $\hat{y} = P(y=1|x)$, 参数 $w \in R^n$, $b \in R$, 所以 $\hat{y}=g(w^T \cdot x + b )$, $g(z)=\frac{1}{1+e^{-z}}$. 在一些实现上, 参数w和参数b是在一起的，所以 x 会添加一个 $x_{(0)}$, 形状变为 $(n+1,1)$, w同理, 并且 $w^{(0)}$ 即为 b。我们没有这样做
 
 ##### Cost Function
-损失函数: $L(\hat{y},y)=-ylog(\hat{y})-(1-y)log(1-\hat{y})$.
+损失函数: $L(\hat{y},y)=-ylog(\hat{y})-(1-y)log(1-\hat{y})$. (交叉熵损失函数)
 代价函数: $J(w,b)=\frac{1}{m}\sum_{i=1}^{m}L(\hat{y},y)=-\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)}))$ 
 
 L1 Loss:
